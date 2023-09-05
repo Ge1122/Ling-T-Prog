@@ -1,0 +1,50 @@
+notasAnt = {'João': 9, 'Maria': 10, 'José': 4, 'Pedro': 8}
+notasNovs = {'João': 9, 'Maria': 10, 'José': 4, 'Pedro': 8}
+def inserir():
+    while True:
+        nome = input("Digite o nome do aluno: ")
+
+
+        if nome in notasNovs:
+            print("Já existe o aluno", nome)
+        else:
+            nota = float(input("Digite a Nota deste aluno: "))
+            notasNovs[nome] = nota
+            x = str(input("Deseja continuar? (s/n)"))
+            if x == "n":
+                break
+def atualizar():
+    atualização = {}
+    while True:
+        nome = input("Digite o nome do aluno: ")
+        if nome in notasNovs:
+            nota = float(input("Digite a nova nota deste aluno: "))
+            atualização[nome] = nota
+            notasNovs.update(atualização)
+            x = str(input("Deseja continuar? (s/n)"))
+            if x == "n":
+                break
+        else:
+            print("Aluno inexistente ☺")
+
+opção = 0
+numero = 0
+
+while opção != 3:
+    print("+=======================+\n");
+    print("|     Menu de Opcoes    |\n");
+    print("+=======================+\n");
+    print("|  1 - Inserir          |\n");
+    print("|  2 - Atualizar        |\n");
+    print("|  3 - Sair             |\n");
+    print("+=======================+\n");
+    opção = int(input("Digite uma opção: "))
+
+    if opção == 1:
+        inserir()
+        print("Antigo dicionário ----->", notasAnt)
+        print("Novo Dicionário ----->", notasNovs)
+    elif opção == 2:
+        atualizar()
+        print("Antigo dicionário ----->", notasAnt)
+        print("Novo Dicionário ----->", notasNovs)
